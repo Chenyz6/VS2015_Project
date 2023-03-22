@@ -1,0 +1,13 @@
+﻿生成启动时间为 2022/11/5 15:53:02。
+     1>项目“C:\Users\Chenyz\Documents\BaiduSyncdisk\vs2015 project\力扣\13罗马数字转整数\13罗马数字转整数\13罗马数字转整数.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "官方解.cpp"
+         官方解.cpp
+     1>c:\users\chenyz\documents\baidusyncdisk\vs2015 project\力扣\13罗马数字转整数\13罗马数字转整数\官方解.cpp(19): warning C4018: “<”: 有符号/无符号不匹配
+     1>c:\users\chenyz\documents\baidusyncdisk\vs2015 project\力扣\13罗马数字转整数\13罗马数字转整数\官方解.cpp(22): warning C4018: “<”: 有符号/无符号不匹配
+     1>c:\users\chenyz\documents\baidusyncdisk\vs2015 project\力扣\13罗马数字转整数\13罗马数字转整数\官方解.cpp(31): error C2065: “sum”: 未声明的标识符
+     1>已完成生成项目“C:\Users\Chenyz\Documents\BaiduSyncdisk\vs2015 project\力扣\13罗马数字转整数\13罗马数字转整数\13罗马数字转整数.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.47

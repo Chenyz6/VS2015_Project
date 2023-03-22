@@ -1,0 +1,10 @@
+﻿生成启动时间为 2022/9/12 17:11:14。
+     1>项目“E:\vs2015 project\C TCP connect\Project1\Project1.vcxproj”在节点 2 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Project1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>Link:
+         Project1.vcxproj -> E:\vs2015 project\C TCP connect\Debug\Server.exe
+     1>已完成生成项目“E:\vs2015 project\C TCP connect\Project1\Project1.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:00.47

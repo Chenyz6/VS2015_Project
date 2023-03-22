@@ -1,0 +1,15 @@
+﻿生成启动时间为 2022/9/28 17:13:20。
+     1>项目“E:\BaiduSyncdisk\vs2015 project\9.14practice\9.14practice\9.14practice.vcxproj”在节点 2 上(Build 个目标)。
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (9.14practice.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt "成员函数做友元.cpp"
+         成员函数做友元.cpp
+     1>e:\baidusyncdisk\vs2015 project\9.14practice\9.14practice\成员函数做友元.cpp(6): error C2653: “gg”: 不是类或命名空间名称
+     1>e:\baidusyncdisk\vs2015 project\9.14practice\9.14practice\成员函数做友元.cpp(34): error C2248: “Building::bedroom”: 无法访问 private 成员(在“Building”类中声明)
+         e:\baidusyncdisk\vs2015 project\9.14practice\9.14practice\成员函数做友元.cpp(16): note: 参见“Building::bedroom”的声明
+         e:\baidusyncdisk\vs2015 project\9.14practice\9.14practice\成员函数做友元.cpp(5): note: 参见“Building”的声明
+     1>已完成生成项目“E:\BaiduSyncdisk\vs2015 project\9.14practice\9.14practice\9.14practice.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:00.23
