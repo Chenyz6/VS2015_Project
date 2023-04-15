@@ -120,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="k个结点的组内逆序.cpp" />
     <ClCompile Include="practice.cpp" />
+    <ClCompile Include="两个链表相加.cpp" />
     <ClCompile Include="单向链表.cpp" />
     <ClCompile Include="双链表实现双端队列.cpp" />
     <ClCompile Include="双链表逆序.cpp" />
