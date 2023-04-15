@@ -25,7 +25,7 @@ List * insertList(int n)  // 插入元素
 	return head;
 }
 
-void printList(List * p)
+void printList(List * p)  // 打印列表
 {
 	while (p != NULL)
 	{
