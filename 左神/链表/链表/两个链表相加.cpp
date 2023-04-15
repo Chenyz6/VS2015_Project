@@ -7,16 +7,16 @@ typedef struct node
 	struct node * next;
 }List;
 
-List * insertList(int n)
+List * insertList(int n)  // æ’å…¥å…ƒç´ 
 {
 	List * head = new List;
 	List * pre = head;
-	cout << "²åÈëÁĞ±íÔªËØ£º";
+	cout << "æ’å…¥åˆ—è¡¨å…ƒç´ ï¼š";
 	cin >> head->value;
 	for (int i = 0; i < n - 1; i++)
 	{
 		List * p = new List;
-		cout << "²åÈëÁĞ±íÔªËØ£º";
+		cout << "æ’å…¥åˆ—è¡¨å…ƒç´ ï¼š";
 		cin >> p->value;
 		pre->next = p;
 		pre = p;
@@ -96,11 +96,11 @@ List * addList(List * head1, List * head2)
 
 int main()
 {
-	cout << "²åÈëµÚÒ»¸öÁĞ±íÔªËØ" << endl;
+	cout << "æ’å…¥ç¬¬ä¸€ä¸ªåˆ—è¡¨å…ƒç´ " << endl;
 	List * p1 = insertList(3);
 	printList(p1);
 	cout << "length:" << lengthList(p1) << endl;
-	cout << "²åÈëµÚ¶ş¸öÁĞ±íÔªËØ" << endl;
+	cout << "æ’å…¥ç¬¬äºŒä¸ªåˆ—è¡¨å…ƒç´ " << endl;
 	List * p2 = insertList(5);
 	printList(p2);
 	cout << "length:" << lengthList(p2) << endl;
