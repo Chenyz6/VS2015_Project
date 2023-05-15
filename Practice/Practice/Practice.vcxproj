@@ -123,6 +123,7 @@
     <ClCompile Include="2022.11.30.cpp" />
     <ClCompile Include="2023.1.13.cpp" />
     <ClCompile Include="2023.1.31.cpp" />
+    <ClCompile Include="2023.5.7.cpp" />
     <ClCompile Include="22.11.10.cpp" />
     <ClCompile Include="22.11.11.cpp" />
     <ClCompile Include="22.11.14.cpp" />
