@@ -9,6 +9,29 @@ struct Node
 	Node * right;
 };
 
+void initNode(Node * head)
+{
+	Node * p = new Node;
+	Node * p1 = new Node;
+	Node * p2 = new Node;
+	Node * p3 = new Node;
+	head->value = 5;  // 根是5
+	head->left = p;
+	p->value = 3;  // 左是3
+	p->left = NULL;
+	p->right = NULL;
+	head->right = p1;
+	p1->value = 1;  // 右是1
+	p1->left = p2;
+	p1->right = p3;
+	p2->value = 7;
+	p2->right = NULL;
+	p2->left = NULL;
+	p3->value = 9;
+	p3->right = NULL;
+	p3->left = NULL;
+}
+
 // 递归实现
 void f(Node * head)  // 节点的遍历  每个节点都会打印三次
 {
@@ -26,7 +49,7 @@ void preOrderRecur(Node * head)  // 先序遍历
 	{
 		return;
 	}
-	cout << head->value;
+	cout << head->value << " ";
 	preOrderRecur(head->left);
 	preOrderRecur(head->right);
 }
@@ -38,7 +61,7 @@ void inOrderRecur(Node * head)  // 中序遍历
 		return;
 	}
 	inOrderRecur(head->left);
-	cout << head->value;
+	cout << head->value << " ";
 	inOrderRecur(head->right);
 }
 
@@ -50,7 +73,7 @@ void lastOrderRecur(Node * head)  // 后序遍历
 	}
 	lastOrderRecur(head->left);
 	lastOrderRecur(head->right);
-	cout << head->value;
+	cout << head->value << " ";
 }
 
 // 非递归实现树前序遍历
@@ -58,76 +81,101 @@ void preOrderUnRecur(Node * node)
 {
 	if (node != NULL)
 	{
-		stack<int> s;
-		s.push(node->value);
+		stack<Node *> s;
+		s.push(node);
 		while (!s.empty())
 		{
-			cout << s.top();
+			cout << s.top()->value << " ";
+			Node * pre = s.top();
 			s.pop();
-			if (node->right != NULL)  // 先右再左
+			if (pre->right != NULL)  // 先右再左
 			{
-				s.push(node->right->value);
+				s.push(pre->right);
 			}
-			if (node->left != NULL) 
+			if (pre->left != NULL)
 			{
-				s.push(node->left->value);
+				s.push(pre->left);
 			}
 		}
 	}
 }
 
-void preOrderUnRecur(Node * node)
+// 非递归实现树中序遍历
+void inOrderUnRecur(Node * node)
 {
 	if (node != NULL)
 	{
-		stack<int> s;
-		s.push(node->value);
-		while (!s.empty())
+		stack<Node *> s;
+		while (!s.empty() || node != NULL)  // 找退出循环的条件
 		{
-			cout << s.top();
-			s.pop();
-			if (node->right != NULL)  // 先右再左
+			if (node != NULL)   
 			{
-				s.push(node->right->value);
+				s.push(node);
+				node = node->left;
 			}
-			if (node->left != NULL)
+			else
 			{
-				s.push(node->left->value);
+				cout << s.top()->value << " ";
+				node = s.top();
+				s.pop();
+				node = node->right;
 			}
 		}
 	}
 }
 
-// 后序遍历
+// 非递归后序遍历
 void lastOrderUnRecur(Node * node)
 {
 	if (node != NULL)
 	{
-		stack<int> s1,s2;
-		s1.push(node->value);
-		while (!s1.empty())
+		stack<Node *> s,s1;
+		s.push(node);
+		while (!s.empty())
 		{
-			s2.push(s1.top);
-			s1.pop();
-			if (node->right != NULL)  // 先左再右   s1为根右左    s2为左右根
+			s1.push(s.top());
+			Node * pre = s.top();
+			s.pop();
+			if (pre->left != NULL)  // 先左再右
 			{
-				s1.push(node->right->value);
+				s.push(pre->left);   // 根右左  再 放到一个栈内 出来 左右跟
 			}
-			if (node->left != NULL)
+			if (pre->right != NULL)
 			{
-				s1.push(node->left->value);
+				s.push(pre->right);
 			}
 		}
-		while (!s2.empty())
+		while (!s1.empty())
 		{
-			cout << s2.top() << endl;
-			s2.pop();
+			cout << s1.top()->value << " ";
+			s1.pop();
 		}
 	}
 }
 
+
 int main()
 {
+	Node * head = new Node;
+	initNode(head);
+	cout << "递归先序遍历" << endl;
+	preOrderRecur(head);
+	cout << endl;
+	cout << "递归中序遍历" << endl;
+	inOrderRecur(head);
+	cout << endl;
+	cout << "递归后序遍历" << endl;
+	lastOrderRecur(head);
+	cout << endl << "-----------------" << endl;
+	cout << "非递归前序遍历" << endl;
+	preOrderUnRecur(head);
+	cout << endl;
+	cout << "非递归中序遍历" << endl;
+	inOrderUnRecur(head);
+	cout << endl;
+	cout << "非递归后序遍历" << endl;
+	lastOrderUnRecur(head);
+	cout << endl;
 	system("pause");
 }
 
