@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stack>
+#include <queue>
+#include <map>
 using namespace std;
 
 struct Node 
@@ -151,6 +153,43 @@ void lastOrderUnRecur(Node * node)
 			s1.pop();
 		}
 	}
+}
+
+int maxWidth(Node * node)
+{
+	queue<Node *> q;
+	map<Node*, int> m;
+	int curLevel = 1;
+	int curLevelNodes = 0;
+	int Max = 0;
+	m.insert(pair<Node *, int>(node, 1));
+	q.push(node);
+	while (!q.empty())
+	{
+		Node * temp = q.front();
+		if (curLevel == m[temp])
+		{
+			curLevelNodes++;
+		}
+		else
+		{
+			curLevel++;
+			Max = max(Max, curLevelNodes);
+			curLevelNodes = 1;
+		}
+		q.pop();
+		if (temp->left != NULL)
+		{
+			m.insert(pair<Node*, int>(temp->left, curLevel + 1));
+			q.push(temp->left);
+		}
+		if (temp->right != NULL)
+		{
+			m.insert(pair<Node*, int>(temp->right, curLevel + 1));
+			q.push(temp->right);
+		}
+	}
+	return Max;
 }
 
 
