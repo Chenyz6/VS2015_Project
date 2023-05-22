@@ -193,6 +193,80 @@ int maxWidth(Node * node)
 }
 
 
+int preValue = 0;
+bool checkBST(Node * node)    // BST 搜索二叉树  中序遍历是递增序列
+{
+	if (node == NULL)
+	{
+		return true;
+	}
+	bool isLeftBst = checkBST(node->left);
+	if (isLeftBst == false)
+	{
+		return false;
+	}
+	if (node->value <= preValue)
+	{
+		return false;
+	}
+	else
+	{
+		preValue = node->value;
+	}
+	checkBST(node->right);
+}
+
+void WidthUnRecur(Node * node)  // 宽度优先遍历
+{
+	queue<Node *> q;
+	q.push(node);
+	while (!q.empty())
+	{
+		cout << q.front()->value << " ";
+		Node * cur = q.front();
+		q.pop();
+		if (cur->left != NULL)
+		{
+			q.push(cur->left);
+		}
+		if (cur->right != NULL)
+		{
+			q.push(cur->right);
+		}
+	}
+}
+
+bool isCBT(Node * node)  // 判断是否为完全二叉树 
+{
+	queue<Node *> q;
+	bool leaf = false;
+	q.push(node);
+	while (!q.empty())
+	{
+		Node * cur = q.front();
+		q.pop();
+		if (leaf && (cur->left != NULL && cur->right != NULL) // 已经发现有不双全的节点之后，又发现当前节点不是叶节点
+			|| (cur->right != NULL && cur->left == NULL)
+			) 
+		{
+			return false;
+		}
+		if (cur->left != NULL)
+		{
+			q.push(cur->left);
+		}
+		if (cur->right != NULL)
+		{
+			q.push(cur->right);
+		}
+		if (cur->left == NULL || cur->value == NULL)
+		{
+			leaf = true;
+		}
+	}
+	return true;
+}
+
 int main()
 {
 	Node * head = new Node;
@@ -214,7 +288,14 @@ int main()
 	cout << endl;
 	cout << "非递归后序遍历" << endl;
 	lastOrderUnRecur(head);
+	cout << endl << "-----------------" << endl;
+	cout << "非递归宽度优先遍历" << endl;
+	WidthUnRecur(head);
 	cout << endl;
+	cout << "递归检查是否是BST搜索二叉树" << endl;
+	cout << checkBST(head) << endl;
+	cout << "非递归检查是否是完全二叉树" << endl;
+	cout << isCBT(head) << endl;
 	system("pause");
 }
 
