@@ -267,6 +267,81 @@ bool isCBT(Node * node)  // 判断是否为完全二叉树
 	return true;
 }
 
+struct returnData
+{
+	bool isBST;
+	int max;
+	int min;
+	returnData(bool is,int ma,int mi) 
+	{
+		isBST = is;
+		max = ma;
+		min = mi;
+	}
+};
+returnData isBST2(Node * node)   // 判断是否是搜索二叉树方法2
+{
+	if (node == NULL)
+	{
+		return returnData(NULL, -1, -1);
+	}
+	returnData leftData = isBST2(node->left);
+	returnData rightData = isBST2(node->right);
+	int Min = node->value;
+	int Max = node->value;
+	if (node->left != NULL)
+	{
+		Min = min(Min, leftData.min);
+		Max = max(Max, leftData.max);
+	}
+	if (node->right != NULL)
+	{
+		Min = min(Min, rightData.min);
+		Max = max(Max, rightData.max);
+	}
+	bool isBST = true;
+	if (node != NULL && (!leftData.isBST || leftData.max >= node->value))
+	{
+		isBST = false;
+	}
+	if (node != NULL && (!rightData.isBST || rightData.min <= node->value))
+	{
+		isBST = false;
+	}
+	return returnData(isBST,Max,Min);
+}
+
+// 判断是否是满二叉树
+struct fullData
+{
+	int height;
+	int nodes;
+	fullData(int h,int n)
+	{
+		height = h;
+		nodes = n;
+	}
+};
+
+bool isF(Node * node)
+{
+	fullData data = ff(node);
+	return (1 << data.height) - 1;  // 2的n次幂 使用有意
+}
+
+fullData ff(Node * node)
+{
+	if (node == NULL)
+	{
+		return fullData(0,0);
+	}
+	fullData leftData = ff(node->left);
+	fullData rightData = ff(node->right);
+	int height = max(leftData.height,rightData.height) + 1;
+	int nodes = leftData.nodes + rightData.nodes + 1;
+	return fullData(height, nodes);
+}
+
 int main()
 {
 	Node * head = new Node;
@@ -294,6 +369,8 @@ int main()
 	cout << endl;
 	cout << "递归检查是否是BST搜索二叉树" << endl;
 	cout << checkBST(head) << endl;
+	cout << "递归检查是否是BST搜索二叉树,方式二" << endl; // BST Binary Search Tree
+	cout << isBST2(head).isBST << endl;
 	cout << "非递归检查是否是完全二叉树" << endl;
 	cout << isCBT(head) << endl;
 	system("pause");
