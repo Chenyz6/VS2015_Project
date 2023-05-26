@@ -18,5 +18,17 @@
     <ClCompile Include="二叉树.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="两个节点返回最低公共祖先.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="有父节点求中序遍历后续节点.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="树生成字符串-字符串转树（先序遍历）.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="微软-纸的折痕.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

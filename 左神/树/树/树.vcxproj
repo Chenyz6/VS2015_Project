@@ -118,7 +118,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="两个节点返回最低公共祖先.cpp" />
     <ClCompile Include="二叉树.cpp" />
+    <ClCompile Include="微软-纸的折痕.cpp" />
+    <ClCompile Include="有父节点求中序遍历后续节点.cpp" />
+    <ClCompile Include="树生成字符串-字符串转树（先序遍历）.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
