@@ -9,3 +9,50 @@
 你来安排宣讲的日程，要求会议室进行的宣讲的场次最多。
 返回这个最多的宣讲场次。*/
 //----按结束时间早的顺序来进行排列 是最优解
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct program
+{
+	int start;
+	int end;
+};
+
+class mycompare
+{
+public:
+	bool operator() (program p1,program p2)
+	{
+		return p1.end < p2.end;
+	}
+};
+
+int arrange(program programs[],int curtime)
+{
+	sort(programs,programs + sizeof(programs) / sizeof(programs[0]), mycompare());
+	for (int i = 0;i < 10;i++)
+	{
+		cout << programs[i].end << " ";
+	}
+	return 0;
+}
+
+int main()
+{
+	program programs[10];
+	for (int i = 0;i < 10;i++)
+	{
+		programs[i].start = i + 2;
+		programs[i].end = i + 1;
+	}
+	for (int i = 0;i < 10;i++)
+	{
+		cout << programs[i].end << " ";
+	}
+	cout << "-----------";
+	arrange(programs, 6);
+
+	system("pause");
+}
