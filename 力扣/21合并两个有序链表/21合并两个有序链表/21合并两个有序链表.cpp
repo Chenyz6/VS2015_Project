@@ -39,7 +39,7 @@ public:
 				if (p1->val <= p2->val)
 				{
 					ListNode * p = new ListNode;
-					cur->val = p1->val;
+					p->val = p1->val;
 					cur->next = p;
 					cur = p;
 					p->next = NULL;
@@ -48,7 +48,7 @@ public:
 				else
 				{
 					ListNode * p = new ListNode;
-					cur->val = p2->val;
+					p->val = p2->val;
 					cur->next = p;
 					cur = p;
 					p->next = NULL;
@@ -58,7 +58,7 @@ public:
 			while (p1 != NULL)
 			{
 				ListNode * p = new ListNode;
-				cur->val = p1->val;
+				p->val = p1->val;
 				cur->next = p;
 				cur = p;
 				p->next = NULL;
@@ -67,7 +67,7 @@ public:
 			while (p2 != NULL)
 			{
 				ListNode * p = new ListNode;
-				cur->val = p2->val;
+				p->val = p2->val;
 				cur->next = p;
 				cur = p;
 				p->next = NULL;
@@ -78,8 +78,28 @@ public:
 	}
 };
 
-void printList(ListNode * p)  // 打印列表
+ListNode* initListHead(int num)  // 带头节点的初始化
 {
+	ListNode * node = new ListNode;
+	ListNode * cur = node;
+	for (int i = 0; i < num; i++)
+	{
+		ListNode * p = new ListNode;
+		p->val = rand() % 10;
+		cur->next = p;
+		p->next = NULL;
+		cur = p;
+	}
+	return node;
+}
+
+void printListHead(ListNode * node)  // 打印列表
+{
+	if (node->next == NULL)
+	{
+		return;
+	}
+	ListNode * p = node->next;
 	while (p != NULL)
 	{
 		cout << p->val << " ";
@@ -90,36 +110,38 @@ void printList(ListNode * p)  // 打印列表
 
 int main() 
 {
-	ListNode * node = new ListNode;
-	ListNode * cur = node;
-	for (int i = 0;i < 3;i++)
-	{
-		ListNode * p = new ListNode;
-		cur->val = rand() % 10;
-		cur->next = p;
-		cur = p;
-		p->next = NULL;
-	}
+	//ListNode * cur = node;
+	//for (int i = 0;i < 3;i++)
+	//{
+	//	ListNode * p = new ListNode;
+	//	cur->val = rand() % 10;
+	//	p->next = NULL;
+	//	cur->next = p;
+	//	cur = p;
+	//}
+	//cur->next = NULL;
+
+	ListNode * head = initListHead(0);
 	cout << "链表1" << endl;
-	printList(node);
+	printListHead(head);
 
-	ListNode * node2 = new ListNode;
-	ListNode * cur2 = node2;
-	for (int i = 0;i < 3;i++)
-	{
-		ListNode * p = new ListNode;
-		cur2->val = rand() % 10;
-		cur2->next = p;
-		cur2 = p;
-		p->next = NULL;
-	}
-	cout << endl << "链表2" << endl;
-	printList(node2);
+	//ListNode * node2 = new ListNode;
+	//ListNode * cur2 = node2;
+	//for (int i = 0;i < 3;i++)
+	//{
+	//	ListNode * p = new ListNode;
+	//	cur2->val = rand() % 10;
+	//	cur2->next = p;
+	//	cur2 = p;
+	//	p->next = NULL;
+	//}
+	//cout << endl << "链表2" << endl;
+	//printList(node2);
 
-	cout << endl << "合并完" << endl;
-	Solution s;
-	ListNode* result = s.mergeTwoLists(node, node2);
-	printList(result);
+	//cout << endl << "合并完" << endl;
+	//Solution s;
+	//ListNode* result = s.mergeTwoLists(node, node2);
+	//printList(result);
 	system("pause");
 	return 0;
 }
