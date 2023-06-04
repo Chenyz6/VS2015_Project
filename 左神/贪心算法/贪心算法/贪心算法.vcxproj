@@ -118,7 +118,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="贪心算法.cpp" />
+    <ClCompile Include="N皇后问题.cpp" />
+    <ClCompile Include="会议室宣讲.cpp" />
+    <ClCompile Include="项目最大钱数.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
