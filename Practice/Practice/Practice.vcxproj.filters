@@ -15,40 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="22.11.3算数仿函数.cpp">
+    <ClCompile Include="枚举测试.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="22.11.4.cpp">
+    <ClCompile Include="DWORD-WORD.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="22.11.5.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="22.11.7.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="22.11.10.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="22.11.11.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="22.11.14.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="2022.11.26.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="2022.11.30.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="2023.1.13.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="2023.1.31.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="2023.5.7.cpp">
+    <ClCompile Include="A模板.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
