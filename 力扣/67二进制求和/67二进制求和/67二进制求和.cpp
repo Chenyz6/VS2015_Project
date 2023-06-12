@@ -17,23 +17,25 @@ public:
 	string addBinary(string a, string b) {
 		int alen = a.size() - 1;
 		int blen = b.size() - 1;
-		int temp = 0;
-		for (int i = alen,j = blen; i >= 0 && j >= 0; i--, j--)
+		int temp = 0, i = 0, j = 0;
+		if (alen <= blen)
 		{
-			if (a[i] + b[j] + temp == 2)
+			for (int i = alen; i >= 0; i--)
 			{
-				temp = 1;
-				b[j] = 0;
-			}
-			else if (a[i] + b[j] + temp == 3)
-			{
-				temp = 1;
-				b[j] = 1;
-			}
-			else
-			{
-				b[j] = a[i] + b[j];
-				cout << a[i] <<  " " << b[j];
+				if (a[i] + b[blen] + temp == 2)
+				{
+					temp = 1;
+					b[blen] = 0;
+				}
+				else if (a[i] + b[blen] + temp == 3)
+				{
+					temp = 1;
+					b[blen] = 1;
+				}
+				else
+				{
+					b[blen] = a[i] + b[blen];
+				}
 			}
 		}
 
