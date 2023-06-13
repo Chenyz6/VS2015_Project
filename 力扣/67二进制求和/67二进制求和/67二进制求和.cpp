@@ -10,6 +10,7 @@
 	输出："10101"*/
 #include <iostream>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -17,36 +18,75 @@ public:
 	string addBinary(string a, string b) {
 		int alen = a.size() - 1;
 		int blen = b.size() - 1;
-		int temp = 0, i = 0, j = 0;
+		int temp = 0;
 		if (alen <= blen)
 		{
-			for (int i = alen; i >= 0; i--)
+			a.insert(0, blen - alen,'0');
+			alen = blen;
+		}
+		else
+			b.insert(0, alen - blen, '0');
+		for (int i = alen; i >= 0; i--)
+		{
+			if (a[i] + b[i] - '0' - '0' + temp == 2)
 			{
-				if (a[i] + b[blen] + temp == 2)
-				{
-					temp = 1;
-					b[blen] = 0;
-				}
-				else if (a[i] + b[blen] + temp == 3)
-				{
-					temp = 1;
-					b[blen] = 1;
-				}
-				else
-				{
-					b[blen] = a[i] + b[blen];
-				}
+				temp = 1;
+				a[i] = '0';
+			}
+			else if (a[i] + b[i] - '0' - '0' + temp == 3)
+			{
+				temp = 1;
+				a[i] = '1';
+			}
+			else if (a[i] + b[i] - '0' - '0' + temp == 1)
+			{
+				temp = 0;
+				a[i] = '1';
+			}
+			else
+			{
+				a[i] = a[i] + b[i] - '0';
 			}
 		}
-
-		return b;
+		if (temp == 1)
+		{
+			a.insert(0, "1");
+		}
+		return a;
 	}
 };
 
+
+// 官方题解
+class Solution1 {   
+public:
+	string addBinary(string a, string b) {
+		string ans;
+		reverse(a.begin(), a.end());    //  110      011
+		reverse(b.begin(), b.end());    //  10       01
+
+		int n = max(a.size(), b.size()), carry = 0;
+		for (size_t i = 0; i < n; ++i) {
+			carry += i < a.size() ? (a.at(i) == '1') : 0;
+			carry += i < b.size() ? (b.at(i) == '1') : 0;
+			ans.push_back((carry % 2) ? '1' : '0');
+			carry /= 2;
+		}
+
+		if (carry) {
+			ans.push_back('1');
+		}
+		reverse(ans.begin(), ans.end());
+
+		return ans;
+	}
+};
+
+
 int main()
 {
-	string a = "0000";
-	string b = "1011";
+	string a = "0001";
+	string b = "1";
 	Solution s;
 	cout << s.addBinary(a, b) << endl;
 	system("pause");
