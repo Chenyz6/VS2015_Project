@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="A模板.cpp" />
     <ClCompile Include="DWORD-WORD.cpp" />
+    <ClCompile Include="二分查找.cpp" />
     <ClCompile Include="枚举测试.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
